@@ -9,6 +9,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using CommentSharedPlaylist.Utils;
+using SharedPlaylist.Core.Utils;
 using System;
 using System.Diagnostics;
 using System.Windows;
