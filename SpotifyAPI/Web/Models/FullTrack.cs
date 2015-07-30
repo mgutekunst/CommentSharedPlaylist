@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 
 namespace SpotifyAPI.Web.Models
@@ -65,5 +66,11 @@ namespace SpotifyAPI.Web.Models
         /// </summary>
         [JsonProperty("linked_from")]
         public LinkedFrom LinkedFrom { get; set; }
+
+        [JsonIgnore]
+        public string FullTrackName
+        {
+            get { return string.Format("{0} - {1}", Artists.First().Name, Name); }
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using SharedPlaylist.Core.Utils;
 using SpotifyAPI.Local;
 using SpotifyAPI.Web;
 using SpotifyAPI.Web.Auth;
@@ -86,14 +87,23 @@ namespace SharedPlaylist.Core.ViewModels
 
         public RelayCommand GetCollaborativePlaylistsCommand { get; private set; }
 
+        public RelayCommand<SimplePlaylist> GetTracksForPlaylistCommand { get; private set; }
+
 
         public MainViewModel()
         {
             InitCommand = new RelayCommand(init);
             GetCollaborativePlaylistsCommand = new RelayCommand(getPlaylists);
-
+            GetTracksForPlaylistCommand = new RelayCommand<SimplePlaylist>(getTracksForPlaylist);
 
             init();
+        }
+
+        private void getTracksForPlaylist(SimplePlaylist playlist)
+        {
+            var tracks = _spotifyWeb.GetPlaylistTracks(playlist.Owner.Id, playlist.Id, string.Empty, Statics.PLAYLIST_TRACK_LIMIT);
+            playlist.Tracks.PlaylistTracks = tracks.Items;
+
         }
 
         private void init()
@@ -201,7 +211,17 @@ namespace SharedPlaylist.Core.ViewModels
             Playlists = _spotifyWeb.GetUserPlaylists(_privateProfile.Id);
 
 
-            CollaborativePlaylists = _playlists.Items.Where(e => e.Collaborative == true).ToList();
+            var collaborativePlaylists = _playlists.Items.Where(e => e.Collaborative).ToList();
+
+            if (collaborativePlaylists.Any())
+            {
+                foreach (var playlist in collaborativePlaylists)
+                {
+                    getTracksForPlaylist(playlist);
+                }
+            }
+
+            CollaborativePlaylists = collaborativePlaylists;
         }
     }
 }

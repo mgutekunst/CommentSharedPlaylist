@@ -37,6 +37,10 @@ namespace SpotifyAPI.Web.Models
 
         [JsonProperty("total")]
         public int Total { get; set; }
+
+        [JsonIgnore]
+        //public Paging<PlaylistTrack> PlaylistTracks { get; set; }
+        public List<PlaylistTrack> PlaylistTracks { get; set; }
     }
 
     public class Followers
