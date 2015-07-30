@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization.Formatters;
 using System.Web.Http;
+using Newtonsoft.Json;
 
 namespace SharedPlaylistApi
 {
@@ -19,6 +21,32 @@ namespace SharedPlaylistApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+
+            config.Routes.MapHttpRoute(
+                name: "ActionApi",
+                routeTemplate: "api/{controller}/{action}/{id}",
+                defaults: new { id = RouteParameter.Optional, action = RouteParameter.Optional }
+                );
+
+
+            config.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
+
+
+            var serializerSettings = new JsonSerializerSettings()
+            {
+                NullValueHandling = NullValueHandling.Ignore,
+                TypeNameAssemblyFormat = FormatterAssemblyStyle.Simple,
+                ObjectCreationHandling = ObjectCreationHandling.Replace,
+                MaxDepth = 2,
+                MissingMemberHandling = MissingMemberHandling.Ignore,
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+                PreserveReferencesHandling = PreserveReferencesHandling.None
+            };
+
+            config.Formatters.JsonFormatter.SerializerSettings = serializerSettings;
+
         }
     }
 }

@@ -16,3 +16,12 @@ C:\Users\andreas.breuninger\Documents\Visual Studio 2013\Projects\SpotifySample\
 C:\Users\andreas.breuninger\Documents\Visual Studio 2013\Projects\SpotifySample\SpotifyAPI\obj\Debug\SpotifyAPI.csprojResolveAssemblyReference.cache
 C:\Users\andreas.breuninger\Documents\Visual Studio 2013\Projects\SpotifySample\SpotifyAPI\obj\Debug\SpotifyAPI.dll
 C:\Users\andreas.breuninger\Documents\Visual Studio 2013\Projects\SpotifySample\SpotifyAPI\obj\Debug\SpotifyAPI.pdb
+C:\git\SharedPlaylist\SpotifyAPI\bin\Debug\SpotifyAPI.dll.config
+C:\git\SharedPlaylist\SpotifyAPI\bin\Debug\SpotifyAPI.XML
+C:\git\SharedPlaylist\SpotifyAPI\bin\Debug\SpotifyAPI.dll
+C:\git\SharedPlaylist\SpotifyAPI\bin\Debug\SpotifyAPI.pdb
+C:\git\SharedPlaylist\SpotifyAPI\bin\Debug\Newtonsoft.Json.dll
+C:\git\SharedPlaylist\SpotifyAPI\bin\Debug\Newtonsoft.Json.xml
+C:\git\SharedPlaylist\SpotifyAPI\obj\Debug\SpotifyAPI.csprojResolveAssemblyReference.cache
+C:\git\SharedPlaylist\SpotifyAPI\obj\Debug\SpotifyAPI.dll
+C:\git\SharedPlaylist\SpotifyAPI\obj\Debug\SpotifyAPI.pdb
