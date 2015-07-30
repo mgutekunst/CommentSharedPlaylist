@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using SharedPlaylist.Core.Service;
 using SharedPlaylist.Core.ViewModels;
 
 namespace CommentSharedPlaylist.Utils
@@ -17,6 +18,7 @@ namespace CommentSharedPlaylist.Utils
 
                 // Register ViewModels
                 SimpleIoc.Default.Register<MainViewModel>();
+                SimpleIoc.Default.Register<DataService>();
             }
 
             _isInitialized = true;

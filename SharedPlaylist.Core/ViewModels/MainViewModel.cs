@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using Microsoft.Practices.ServiceLocation;
+using SharedPlaylist.Core.Service;
 using SharedPlaylist.Core.Utils;
+using SharedPlaylistApi.Models;
 using SpotifyAPI.Local;
 using SpotifyAPI.Web;
 using SpotifyAPI.Web.Auth;
@@ -204,7 +207,7 @@ namespace SharedPlaylist.Core.ViewModels
 
 
 
-        private void getPlaylists()
+        private async void getPlaylists()
         {
             PrivateProfile = _spotifyWeb.GetPrivateProfile();
 
@@ -222,6 +225,17 @@ namespace SharedPlaylist.Core.ViewModels
             }
 
             CollaborativePlaylists = collaborativePlaylists;
+
+
+            var x = await ServiceLocator.Current.GetInstance<DataService>().GetCommentsAsync();
+            var y = await ServiceLocator.Current.GetInstance<DataService>().PostCommentAsync(new Comments()
+            {
+                Comment = "Test Dataservice",
+                PlaylistId = "1", 
+                TrackId = "1", 
+                Order = 1
+            });
+
         }
     }
 }
