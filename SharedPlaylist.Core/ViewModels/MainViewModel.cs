@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using Microsoft.Practices.ServiceLocation;
@@ -68,6 +69,12 @@ namespace SharedPlaylist.Core.ViewModels
             }
         }
 
+        private List<Comments> _comments;
+        public List<Comments> Comments
+        {
+            get { return _comments; }
+            set { _comments = value; RaisePropertyChanged("Comments"); }
+        }
 
         private bool _connectedWeb;
         public bool ConnectedWeb
@@ -92,30 +99,57 @@ namespace SharedPlaylist.Core.ViewModels
 
         public RelayCommand<SimplePlaylist> GetTracksForPlaylistCommand { get; private set; }
 
+        //public RelayCommand GetAllCommentsCommand { get; private set; }
+
 
         public MainViewModel()
         {
             InitCommand = new RelayCommand(init);
             GetCollaborativePlaylistsCommand = new RelayCommand(getPlaylists);
             GetTracksForPlaylistCommand = new RelayCommand<SimplePlaylist>(getTracksForPlaylist);
+            //GetAllCommentsCommand = new RelayCommand(GetAllComments);
 
             init();
+        }
+
+        public async Task<List<Comments>> GetAllComments()
+        {
+            return await ServiceLocator.Current.GetInstance<DataService>().GetCommentsAsync();
         }
 
         private void getTracksForPlaylist(SimplePlaylist playlist)
         {
             var tracks = _spotifyWeb.GetPlaylistTracks(playlist.Owner.Id, playlist.Id, string.Empty, Statics.PLAYLIST_TRACK_LIMIT);
+
             playlist.Tracks.PlaylistTracks = tracks.Items;
+
+            getCommentsForPlaylistTracks(playlist);
 
         }
 
-        private void init()
+        private void getCommentsForPlaylistTracks(SimplePlaylist playlist)
+        {
+            foreach (var track in playlist.Tracks.PlaylistTracks)
+            {
+                var comments = Comments.Where(e => e.TrackId == track.Track.Id && e.PlaylistId == playlist.Id);
+                if (comments.Any())
+                {
+                    comments.OrderBy(e => e.Order);
+                    track.Track.Comments = new List<Comments>(comments);
+                }
+
+                track.Track.Comments = new List<Comments>();
+            }
+        }
+
+        private async void init()
         {
             _spotifyLocal = new SpotifyLocalAPI();
 
 
             connectLocal();
             connectWeb();
+
         }
 
 
@@ -214,6 +248,9 @@ namespace SharedPlaylist.Core.ViewModels
             Playlists = _spotifyWeb.GetUserPlaylists(_privateProfile.Id);
 
 
+            Comments = await GetAllComments();
+
+
             var collaborativePlaylists = _playlists.Items.Where(e => e.Collaborative).ToList();
 
             if (collaborativePlaylists.Any())
@@ -224,17 +261,21 @@ namespace SharedPlaylist.Core.ViewModels
                 }
             }
 
+
+
+
+
+
             CollaborativePlaylists = collaborativePlaylists;
 
 
-            var x = await ServiceLocator.Current.GetInstance<DataService>().GetCommentsAsync();
-            var y = await ServiceLocator.Current.GetInstance<DataService>().PostCommentAsync(new Comments()
-            {
-                Comment = "Test Dataservice",
-                PlaylistId = "1", 
-                TrackId = "1", 
-                Order = 1
-            });
+            //var y = await ServiceLocator.Current.GetInstance<DataService>().PostCommentAsync(new Comments()
+            //{
+            //    Comment = "Test Dataservice",
+            //    PlaylistId = "1", 
+            //    TrackId = "1", 
+            //    Order = 1
+            //});
 
         }
     }

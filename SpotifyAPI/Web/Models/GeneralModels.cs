@@ -1,7 +1,9 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
+using SharedPlaylistApi.Models;
 
 namespace SpotifyAPI.Web.Models
 {
@@ -65,6 +67,7 @@ namespace SpotifyAPI.Web.Models
 
         [JsonProperty("is_local")]
         public Boolean IsLocal { get; set; }
+
     }
 
     public class DeleteTrackUri

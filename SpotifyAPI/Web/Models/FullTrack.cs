@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
+using SharedPlaylistApi.Models;
 
 namespace SpotifyAPI.Web.Models
 {
@@ -72,5 +73,8 @@ namespace SpotifyAPI.Web.Models
         {
             get { return string.Format("{0} - {1}", Artists.First().Name, Name); }
         }
+
+        [JsonIgnore]
+        public List<Comments> Comments { get; set; }
     }
 }

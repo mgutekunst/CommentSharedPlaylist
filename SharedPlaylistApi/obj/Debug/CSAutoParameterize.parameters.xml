@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="CommentModel-Web.config Connection String" description="CommentModel Connection String used in web.config by the application to access the database." defaultValue="data source=(LocalDB)\v11.0;attachdbfilename=|DataDirectory|\Comments.mdf;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\git\\SharedPlaylist\\SharedPlaylistApi\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CommentModel']/@connectionString" />
-  </parameter>
-  <parameter name="CommentModel_DatabasePublish-Web.config Connection String" description="CommentModel_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="CommentModel_DatabasePublish.ConnetionString" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\git\\SharedPlaylist\\SharedPlaylistApi\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CommentModel_DatabasePublish']/@connectionString" />
-  </parameter>
-</parameters>

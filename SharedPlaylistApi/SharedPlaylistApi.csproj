@@ -167,6 +167,14 @@
     <Compile Include="Migrations\201507301653011_Added Comment Field.Designer.cs">
       <DependentUpon>201507301653011_Added Comment Field.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507311033162_Added username field.cs" />
+    <Compile Include="Migrations\201507311033162_Added username field.Designer.cs">
+      <DependentUpon>201507311033162_Added username field.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507311034038_Fixed username field.cs" />
+    <Compile Include="Migrations\201507311034038_Fixed username field.Designer.cs">
+      <DependentUpon>201507311034038_Fixed username field.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comments.cs" />
     <Compile Include="Models\CommentsModel.cs" />
@@ -243,6 +251,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201507301653011_Added Comment Field.resx">
       <DependentUpon>201507301653011_Added Comment Field.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507311033162_Added username field.resx">
+      <DependentUpon>201507311033162_Added username field.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507311034038_Fixed username field.resx">
+      <DependentUpon>201507311034038_Fixed username field.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

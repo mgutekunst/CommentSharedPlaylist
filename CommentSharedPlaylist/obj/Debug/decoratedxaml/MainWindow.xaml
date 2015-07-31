@@ -1,0 +1,44 @@
+﻿<Window x:Class="CommentSharedPlaylist.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="{Binding Title}" Height="350" Width="525" DataContext="{Binding MainViewModel, Source={StaticResource ViewModelLocator}}" WindowStyle="ToolWindow" ShowInTaskbar="True" WindowStartupLocation="CenterScreen" xmlns:spy="http://firstfloorsoftware.com/XamlSpy" spy:XamlMetadata.SpyServiceSettings="127.0.0.1|4530|52484|1" spy:XamlMetadata.SourceInfo="C:\git\SharedPlaylist\CommentSharedPlaylist\MainWindow.xaml|1|C:\git\SharedPlaylist\SharedPlaylist.sln">
+
+
+
+
+
+
+    <Grid Background="Black" spy:XamlMetadata.SourceInfo="C:\git\SharedPlaylist\CommentSharedPlaylist\MainWindow.xaml|8|C:\git\SharedPlaylist\SharedPlaylist.sln">
+        <TreeView x:Name="treeView" ItemsSource="{Binding CollaborativePlaylists}" spy:XamlMetadata.SourceInfo="C:\git\SharedPlaylist\CommentSharedPlaylist\MainWindow.xaml|9|C:\git\SharedPlaylist\SharedPlaylist.sln">
+            <TreeView.ItemTemplate>
+                <DataTemplate>
+                    <TreeViewItem Header="{Binding Name}" ItemsSource="{Binding Tracks.PlaylistTracks}" spy:XamlMetadata.SourceInfo="C:\git\SharedPlaylist\CommentSharedPlaylist\MainWindow.xaml|12|C:\git\SharedPlaylist\SharedPlaylist.sln">
+                        <TreeViewItem.ItemTemplate>
+                            <DataTemplate>
+                                <TreeViewItem Header="{Binding Track.FullTrackName}" Margin="0,6" spy:XamlMetadata.SourceInfo="C:\git\SharedPlaylist\CommentSharedPlaylist\MainWindow.xaml|15|C:\git\SharedPlaylist\SharedPlaylist.sln">
+                                    <TreeViewItem.ContextMenu>
+                                        <ContextMenu spy:XamlMetadata.SourceInfo="C:\git\SharedPlaylist\CommentSharedPlaylist\MainWindow.xaml|17|C:\git\SharedPlaylist\SharedPlaylist.sln">
+                                            <MenuItem Header="[Add Comment]" Tag="{Binding Track}" Click="addCommentForTrack" spy:XamlMetadata.SourceInfo="C:\git\SharedPlaylist\CommentSharedPlaylist\MainWindow.xaml|18|C:\git\SharedPlaylist\SharedPlaylist.sln" />
+                                        </ContextMenu>
+                                    </TreeViewItem.ContextMenu>
+                                    <!--<ListView ItemsSource="{Binding Track.Comments}">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock>
+                                                        <Run Text="{Binding Username}"/>
+                                                        <Run Text=" - "/>
+                                                        <Run Text="{Binding Comment}"/>
+                                                    </TextBlock>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                        
+                                    </ListView>-->
+                                </TreeViewItem>
+                            </DataTemplate>
+                        </TreeViewItem.ItemTemplate>
+                    </TreeViewItem>
+                </DataTemplate>
+            </TreeView.ItemTemplate>
+
+        </TreeView>
+    </Grid>
+</Window>

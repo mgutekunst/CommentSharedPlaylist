@@ -23,5 +23,10 @@ namespace SharedPlaylistApi.Models
         [Required]
         [StringLength(255)]
         public string Comment { get; set; }
+
+
+        [Required]
+        [StringLength(50)]
+        public string Username { get; set; }
     }
 }

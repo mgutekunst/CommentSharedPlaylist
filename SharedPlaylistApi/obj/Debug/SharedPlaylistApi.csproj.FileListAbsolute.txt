@@ -2,6 +2,8 @@ C:\git\SharedPlaylist\SharedPlaylistApi\bin\SharedPlaylistApi.dll.config
 C:\git\SharedPlaylist\SharedPlaylistApi\bin\SharedPlaylistApi.dll
 C:\git\SharedPlaylist\SharedPlaylistApi\bin\SharedPlaylistApi.pdb
 C:\git\SharedPlaylist\SharedPlaylistApi\bin\Antlr3.Runtime.dll
+C:\git\SharedPlaylist\SharedPlaylistApi\bin\EntityFramework.dll
+C:\git\SharedPlaylist\SharedPlaylistApi\bin\EntityFramework.SqlServer.dll
 C:\git\SharedPlaylist\SharedPlaylistApi\bin\Microsoft.ApplicationInsights.dll
 C:\git\SharedPlaylist\SharedPlaylistApi\bin\Microsoft.Web.Infrastructure.dll
 C:\git\SharedPlaylist\SharedPlaylistApi\bin\Newtonsoft.Json.dll
@@ -16,6 +18,8 @@ C:\git\SharedPlaylist\SharedPlaylistApi\bin\System.Web.WebPages.Deployment.dll
 C:\git\SharedPlaylist\SharedPlaylistApi\bin\System.Web.WebPages.dll
 C:\git\SharedPlaylist\SharedPlaylistApi\bin\System.Web.WebPages.Razor.dll
 C:\git\SharedPlaylist\SharedPlaylistApi\bin\WebGrease.dll
+C:\git\SharedPlaylist\SharedPlaylistApi\bin\EntityFramework.xml
+C:\git\SharedPlaylist\SharedPlaylistApi\bin\EntityFramework.SqlServer.xml
 C:\git\SharedPlaylist\SharedPlaylistApi\bin\Microsoft.ApplicationInsights.xml
 C:\git\SharedPlaylist\SharedPlaylistApi\bin\Newtonsoft.Json.xml
 C:\git\SharedPlaylist\SharedPlaylistApi\bin\System.Net.Http.Formatting.xml
@@ -29,12 +33,10 @@ C:\git\SharedPlaylist\SharedPlaylistApi\bin\System.Web.WebPages.xml
 C:\git\SharedPlaylist\SharedPlaylistApi\bin\System.Web.WebPages.Deployment.xml
 C:\git\SharedPlaylist\SharedPlaylistApi\bin\System.Web.WebPages.Razor.xml
 C:\git\SharedPlaylist\SharedPlaylistApi\bin\Antlr3.Runtime.pdb
+C:\git\SharedPlaylist\SharedPlaylistApi\obj\Debug\SharedPlaylistApi.Migrations.AddedCommentField.resources
+C:\git\SharedPlaylist\SharedPlaylistApi\obj\Debug\SharedPlaylistApi.Migrations.Addedusernamefield.resources
+C:\git\SharedPlaylist\SharedPlaylistApi\obj\Debug\SharedPlaylistApi.Migrations.Fixedusernamefield.resources
+C:\git\SharedPlaylist\SharedPlaylistApi\obj\Debug\SharedPlaylistApi.csproj.GenerateResource.Cache
 C:\git\SharedPlaylist\SharedPlaylistApi\obj\Debug\SharedPlaylistApi.dll
 C:\git\SharedPlaylist\SharedPlaylistApi\obj\Debug\SharedPlaylistApi.pdb
-C:\git\SharedPlaylist\SharedPlaylistApi\bin\EntityFramework.dll
-C:\git\SharedPlaylist\SharedPlaylistApi\bin\EntityFramework.SqlServer.dll
-C:\git\SharedPlaylist\SharedPlaylistApi\bin\EntityFramework.xml
-C:\git\SharedPlaylist\SharedPlaylistApi\bin\EntityFramework.SqlServer.xml
-C:\git\SharedPlaylist\SharedPlaylistApi\obj\Debug\SharedPlaylistApi.Migrations.AddedCommentField.resources
-C:\git\SharedPlaylist\SharedPlaylistApi\obj\Debug\SharedPlaylistApi.csproj.GenerateResource.Cache
 C:\git\SharedPlaylist\SharedPlaylistApi\obj\Debug\SharedPlaylistApi.csprojResolveAssemblyReference.cache
