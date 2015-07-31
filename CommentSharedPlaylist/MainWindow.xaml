@@ -5,40 +5,34 @@
         DataContext="{Binding MainViewModel, Source={StaticResource ViewModelLocator}}" WindowStyle="ToolWindow" ShowInTaskbar="True" WindowStartupLocation="CenterScreen">
 
 
-    <Grid Background="Black">
-        <TreeView x:Name="treeView" ItemsSource="{Binding CollaborativePlaylists}">
-            <TreeView.ItemTemplate>
-                <DataTemplate>
-                    <TreeViewItem Header="{Binding Name}" ItemsSource="{Binding Tracks.PlaylistTracks}">
-                        <TreeViewItem.ItemTemplate>
-                            <DataTemplate>
-                                <TreeViewItem Header="{Binding Track.FullTrackName}" Margin="0,6">
-                                    <TreeViewItem.ContextMenu>
-                                        <ContextMenu>
-                                            <MenuItem Header="[Add Comment]" Tag="{Binding Track}" Click="addCommentForTrack" />
-                                        </ContextMenu>
-                                    </TreeViewItem.ContextMenu>
-                                    <!--<ListView ItemsSource="{Binding Track.Comments}">
-                                        <ListView.ItemTemplate>
-                                            <DataTemplate>
-                                                <StackPanel Orientation="Horizontal">
-                                                    <TextBlock>
-                                                        <Run Text="{Binding Username}"/>
-                                                        <Run Text=" - "/>
-                                                        <Run Text="{Binding Comment}"/>
-                                                    </TextBlock>
-                                                </StackPanel>
-                                            </DataTemplate>
-                                        </ListView.ItemTemplate>
-                                        
-                                    </ListView>-->
-                                </TreeViewItem>
-                            </DataTemplate>
-                        </TreeViewItem.ItemTemplate>
-                    </TreeViewItem>
-                </DataTemplate>
-            </TreeView.ItemTemplate>
+    <TreeView x:Name="treeView" ItemsSource="{Binding CollaborativePlaylists}">
+        <TreeView.ItemTemplate>
+            <DataTemplate>
+                <TreeViewItem Header="{Binding Name}" ItemsSource="{Binding Tracks.PlaylistTracks}">
+                    <TreeViewItem.ItemTemplate>
+                        <DataTemplate>
+                            <TreeViewItem Header="{Binding Track.FullTrackName}" Margin="0,6">
+                                <TreeViewItem.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="[Add Comment]" Tag="{Binding Track}" Click="addCommentForTrack" />
+                                    </ContextMenu>
+                                </TreeViewItem.ContextMenu>
 
-        </TreeView>
-    </Grid>
+                                <TreeViewItem  Header="[Comments]" ItemsSource="{Binding Track.Comments}">
+                                    <TreeViewItem.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Comment}"></TextBlock>
+                                        </DataTemplate>
+                                    </TreeViewItem.ItemTemplate>
+
+                                </TreeViewItem>
+
+                            </TreeViewItem>
+                        </DataTemplate>
+                    </TreeViewItem.ItemTemplate>
+                </TreeViewItem>
+            </DataTemplate>
+        </TreeView.ItemTemplate>
+
+    </TreeView>
 </Window>
