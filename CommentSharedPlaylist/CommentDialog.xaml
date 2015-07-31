@@ -1,0 +1,13 @@
+﻿<Window x:Class="CommentSharedPlaylist.CommentDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CommentDialog" Height="300" Width="300" ResizeMode="NoResize"
+        DataContext="{Binding MainViewModel, Source={StaticResource ViewModelLocator}}">
+
+        <StackPanel>
+            <TextBlock Text="[Dein Kommentar]" />
+            <TextBox x:Name="ResponseTextBox" Text="{Binding Comments}"/>
+            <Button Content="OK" Click="OKButton_Click" />
+            <Button Content="Cancel" Click="CancelButton_Click" />
+        </StackPanel>
+</Window>

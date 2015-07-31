@@ -20,7 +20,7 @@ namespace SharedPlaylistApi.Controllers
         // GET: api/Comments
         public IQueryable<Comments> GetComments()
         {
-            return db.Comments;
+            return db.Comments.OrderBy(e => e.Order);
         }
 
         // GET: api/Comments/5
@@ -79,6 +79,16 @@ namespace SharedPlaylistApi.Controllers
             {
                 return BadRequest(ModelState);
             }
+
+            // set next order number
+            var dbComments = db.Comments.Where(e => e.PlaylistId == comments.PlaylistId && e.TrackId == comments.TrackId);
+            if (dbComments.Any())
+            {
+                dbComments.OrderBy(e => e.Order);
+                var newOrder = dbComments.Last().Order;
+                comments.Order = newOrder++;
+            }
+
 
             db.Comments.Add(comments);
             await db.SaveChangesAsync();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
@@ -82,6 +83,17 @@ namespace SharedPlaylist.Core.ViewModels
             get { return _connectedWeb; }
             set { _connectedWeb = value; RaisePropertyChanged("ConnectedWeb"); }
         }
+
+
+        private Comments _newComments;
+
+        public Comments NewComment
+        {
+            get { return _newComments; }
+            set { _newComments = value; }
+        }
+
+
         #endregion
 
 
@@ -99,17 +111,29 @@ namespace SharedPlaylist.Core.ViewModels
 
         public RelayCommand<SimplePlaylist> GetTracksForPlaylistCommand { get; private set; }
 
-        //public RelayCommand GetAllCommentsCommand { get; private set; }
-
+        public RelayCommand SendCommentCommand { get; private set; }
 
         public MainViewModel()
         {
             InitCommand = new RelayCommand(init);
             GetCollaborativePlaylistsCommand = new RelayCommand(getPlaylists);
             GetTracksForPlaylistCommand = new RelayCommand<SimplePlaylist>(getTracksForPlaylist);
-            //GetAllCommentsCommand = new RelayCommand(GetAllComments);
+            SendCommentCommand = new RelayCommand(sendComment);
+
 
             init();
+        }
+
+        private async void sendComment()
+        {
+
+            var dbComment = await ServiceLocator.Current.GetInstance<DataService>().PostCommentAsync(NewComment);
+            if (dbComment.Id != 0)
+            {
+                // todo update comments
+                getPlaylists();
+            }
+
         }
 
         public async Task<List<Comments>> GetAllComments()
@@ -131,14 +155,16 @@ namespace SharedPlaylist.Core.ViewModels
         {
             foreach (var track in playlist.Tracks.PlaylistTracks)
             {
-                var comments = Comments.Where(e => e.TrackId == track.Track.Id && e.PlaylistId == playlist.Id);
-                if (comments.Any())
-                {
-                    comments.OrderBy(e => e.Order);
-                    track.Track.Comments = new List<Comments>(comments);
-                }
 
-                track.Track.Comments = new List<Comments>();
+                // needed for comments in database
+                track.Track.PlaylistId = playlist.Id;
+
+                var comments = Comments.Where(e => e.TrackId == track.Track.Id && e.PlaylistId == playlist.Id);
+                if (!comments.Any())
+                    continue;
+
+                comments.OrderBy(e => e.Order);
+                track.Track.Comments = new List<Comments>(comments);
             }
         }
 
@@ -179,6 +205,8 @@ namespace SharedPlaylist.Core.ViewModels
             else
             {
             }
+
+
 
             return successful;
         }
@@ -247,6 +275,10 @@ namespace SharedPlaylist.Core.ViewModels
 
             Playlists = _spotifyWeb.GetUserPlaylists(_privateProfile.Id);
 
+            NewComment = new Comments()
+            {
+                Username = PrivateProfile.Id
+            };
 
             Comments = await GetAllComments();
 

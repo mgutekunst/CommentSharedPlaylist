@@ -76,5 +76,9 @@ namespace SpotifyAPI.Web.Models
 
         [JsonIgnore]
         public List<Comments> Comments { get; set; }
+
+
+        [JsonIgnore]
+        public string PlaylistId { get; set; }
     }
 }

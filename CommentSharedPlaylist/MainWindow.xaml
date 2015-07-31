@@ -18,15 +18,16 @@
                                     </ContextMenu>
                                 </TreeViewItem.ContextMenu>
 
-                                <TreeViewItem  Header="[Comments]" ItemsSource="{Binding Track.Comments}">
-                                    <TreeViewItem.ItemTemplate>
+                                <ListView  ItemsSource="{Binding Track.Comments}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                    <ListView.ItemTemplate>
                                         <DataTemplate>
-                                            <TextBlock Text="{Binding Comment}"></TextBlock>
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="{Binding Username}" FontWeight="Bold" FontSize="14"/>
+                                                <TextBlock Text="{Binding Comment}" FontWeight="Medium" FontSize="12"/>
+                                            </StackPanel>
                                         </DataTemplate>
-                                    </TreeViewItem.ItemTemplate>
-
-                                </TreeViewItem>
-
+                                    </ListView.ItemTemplate>
+                                </ListView>
                             </TreeViewItem>
                         </DataTemplate>
                     </TreeViewItem.ItemTemplate>

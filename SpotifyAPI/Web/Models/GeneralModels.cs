@@ -68,6 +68,7 @@ namespace SpotifyAPI.Web.Models
         [JsonProperty("is_local")]
         public Boolean IsLocal { get; set; }
 
+
     }
 
     public class DeleteTrackUri

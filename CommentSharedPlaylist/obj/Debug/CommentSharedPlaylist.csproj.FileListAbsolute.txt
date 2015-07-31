@@ -70,11 +70,9 @@ C:\git\SharedPlaylist\CommentSharedPlaylist\obj\Debug\CommentSharedPlaylist.exe
 C:\git\SharedPlaylist\CommentSharedPlaylist\obj\Debug\CommentSharedPlaylist.pdb
 C:\git\SharedPlaylist\CommentSharedPlaylist\bin\Debug\CommentSharedPlaylist.exe.config
 C:\git\SharedPlaylist\CommentSharedPlaylist\bin\Debug\CommentSharedPlaylist.pdb
-C:\git\SharedPlaylist\CommentSharedPlaylist\bin\Debug\XamlSpy.WPF4.dll
-C:\git\SharedPlaylist\CommentSharedPlaylist\obj\Debug\decoratedxaml\App.xaml
-C:\git\SharedPlaylist\CommentSharedPlaylist\obj\Debug\decoratedxaml\MainWindow.xaml
-C:\git\SharedPlaylist\CommentSharedPlaylist\obj\Debug\decoratedxaml\AssemblyInfoSpy.cs
-C:\git\SharedPlaylist\CommentSharedPlaylist\obj\Debug\obj\Debug\decoratedxaml\MainWindow.baml
-C:\git\SharedPlaylist\CommentSharedPlaylist\obj\Debug\obj\Debug\decoratedxaml\MainWindow.g.cs
-C:\git\SharedPlaylist\CommentSharedPlaylist\obj\Debug\obj\Debug\decoratedxaml\App.g.cs
-C:\git\SharedPlaylist\CommentSharedPlaylist\obj\Debug\obj\Debug\decoratedxaml\App.baml
+C:\git\SharedPlaylist\CommentSharedPlaylist\obj\Debug\CommentDialog.baml
+C:\git\SharedPlaylist\CommentSharedPlaylist\obj\Debug\MainWindow.baml
+C:\git\SharedPlaylist\CommentSharedPlaylist\obj\Debug\CommentDialog.g.cs
+C:\git\SharedPlaylist\CommentSharedPlaylist\obj\Debug\MainWindow.g.cs
+C:\git\SharedPlaylist\CommentSharedPlaylist\obj\Debug\App.g.cs
+C:\git\SharedPlaylist\CommentSharedPlaylist\obj\Debug\App.baml

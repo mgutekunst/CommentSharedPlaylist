@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using SharedPlaylist.Core.ViewModels;
+using SharedPlaylistApi.Models;
 using SpotifyAPI.Local;
 using SpotifyAPI.Local.Models;
 using SpotifyAPI.Web;
@@ -57,7 +58,25 @@ namespace CommentSharedPlaylist
         {
             var track = ((MenuItem)sender).Tag as FullTrack;
 
-            MessageBox.Show(string.Format("[Add Comment for {0}]", track.FullTrackName), "[Comment]", MessageBoxButton.YesNo);
+            var dialog = new CommentDialog();
+            if (dialog.ShowDialog() != true)
+                return;
+
+
+            _vm.NewComment.TrackId = track.Id;
+            _vm.NewComment.PlaylistId = track.PlaylistId;
+            _vm.NewComment.Comment = dialog.ResponseText;
+
+            _vm.SendCommentCommand.Execute(null);
+
+            if (track.Comments == null)
+            {
+                track.Comments = new List<Comments>() { _vm.NewComment };
+            }
+            else
+            {
+                track.Comments.Add(_vm.NewComment);
+            }
 
         }
     }

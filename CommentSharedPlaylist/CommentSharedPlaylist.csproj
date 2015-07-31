@@ -74,7 +74,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CommentDialog.xaml.cs">
+      <DependentUpon>CommentDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\BootStrapper.cs" />
+    <Page Include="CommentDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -121,6 +128,10 @@
       <Project>{823700cb-0072-46d9-9465-bad2506d7c5a}</Project>
       <Name>SharedPlaylist.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SharedPlaylistApi\SharedPlaylistApi.csproj">
+      <Project>{C9B9EE1D-1162-4A02-B577-182B462C9FBD}</Project>
+      <Name>SharedPlaylistApi</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SpotifyAPI\SpotifyAPI.csproj">
       <Project>{ebbe35e2-7b91-4d7d-b8fc-3a0472f5119d}</Project>
       <Name>SpotifyAPI</Name>
@@ -134,7 +145,6 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
-  <Import Project="$(XamlSpyInstallPath)MSBuild\FirstFloor.XamlSpy.WPF.targets" Condition="'$(XamlSpyInstallPath)' != '' and '$(Configuration)' == 'DEBUG'" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
