@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using SharedPlaylist.Core.ViewModels;
+using SharedPlaylist.Models;
 using SharedPlaylistApi.Models;
 using SpotifyAPI.Local;
 using SpotifyAPI.Local.Models;

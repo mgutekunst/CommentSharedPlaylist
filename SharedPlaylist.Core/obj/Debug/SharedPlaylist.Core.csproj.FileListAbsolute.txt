@@ -49,3 +49,5 @@ C:\git\SharedPlaylist\SharedPlaylist.Core\obj\Debug\SharedPlaylist.Core.csproj.A
 C:\git\SharedPlaylist\SharedPlaylist.Core\obj\Debug\SharedPlaylist.Core.csprojResolveAssemblyReference.cache
 C:\git\SharedPlaylist\SharedPlaylist.Core\obj\Debug\SharedPlaylist.Core.dll
 C:\git\SharedPlaylist\SharedPlaylist.Core\obj\Debug\SharedPlaylist.Core.pdb
+C:\git\SharedPlaylist\SharedPlaylist.Core\bin\Debug\SharedPlaylist.Models.dll
+C:\git\SharedPlaylist\SharedPlaylist.Core\bin\Debug\SharedPlaylist.Models.pdb

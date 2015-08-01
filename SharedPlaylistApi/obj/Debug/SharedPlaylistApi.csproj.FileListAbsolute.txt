@@ -40,3 +40,6 @@ C:\git\SharedPlaylist\SharedPlaylistApi\obj\Debug\SharedPlaylistApi.csproj.Gener
 C:\git\SharedPlaylist\SharedPlaylistApi\obj\Debug\SharedPlaylistApi.dll
 C:\git\SharedPlaylist\SharedPlaylistApi\obj\Debug\SharedPlaylistApi.pdb
 C:\git\SharedPlaylist\SharedPlaylistApi\obj\Debug\SharedPlaylistApi.csprojResolveAssemblyReference.cache
+C:\git\SharedPlaylist\SharedPlaylistApi\bin\SharedPlaylist.Models.dll
+C:\git\SharedPlaylist\SharedPlaylistApi\bin\SharedPlaylist.Models.pdb
+C:\git\SharedPlaylist\SharedPlaylistApi\obj\Debug\SharedPlaylistApi.Migrations.refactoredmodelintoportableclasslibrary.resources

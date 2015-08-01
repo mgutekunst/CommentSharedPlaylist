@@ -1,0 +1,4 @@
+C:\git\SharedPlaylist\SharedPlaylist.Models\bin\Debug\SharedPlaylist.Models.dll
+C:\git\SharedPlaylist\SharedPlaylist.Models\bin\Debug\SharedPlaylist.Models.pdb
+C:\git\SharedPlaylist\SharedPlaylist.Models\obj\Debug\SharedPlaylist.Models.dll
+C:\git\SharedPlaylist\SharedPlaylist.Models\obj\Debug\SharedPlaylist.Models.pdb

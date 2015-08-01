@@ -1,3 +1,5 @@
+using SharedPlaylist.Models;
+
 namespace SharedPlaylistApi.Models
 {
     using System;

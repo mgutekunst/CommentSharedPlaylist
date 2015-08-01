@@ -108,6 +108,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SharedPlaylist.Models\SharedPlaylist.Models.csproj">
+      <Project>{55DBF02E-C5BE-46C1-90C0-6289D0110225}</Project>
+      <Name>SharedPlaylist.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SharedPlaylistApi\SharedPlaylistApi.csproj">
       <Project>{C9B9EE1D-1162-4A02-B577-182B462C9FBD}</Project>
       <Name>SharedPlaylistApi</Name>

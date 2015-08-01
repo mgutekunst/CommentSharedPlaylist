@@ -175,8 +175,11 @@
     <Compile Include="Migrations\201507311034038_Fixed username field.Designer.cs">
       <DependentUpon>201507311034038_Fixed username field.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508010850167_refactored model into portable class library.cs" />
+    <Compile Include="Migrations\201508010850167_refactored model into portable class library.Designer.cs">
+      <DependentUpon>201508010850167_refactored model into portable class library.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Comments.cs" />
     <Compile Include="Models\CommentsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -247,7 +250,12 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SharedPlaylist.Models\SharedPlaylist.Models.csproj">
+      <Project>{55DBF02E-C5BE-46C1-90C0-6289D0110225}</Project>
+      <Name>SharedPlaylist.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201507301653011_Added Comment Field.resx">
       <DependentUpon>201507301653011_Added Comment Field.cs</DependentUpon>
@@ -257,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201507311034038_Fixed username field.resx">
       <DependentUpon>201507311034038_Fixed username field.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508010850167_refactored model into portable class library.resx">
+      <DependentUpon>201508010850167_refactored model into portable class library.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

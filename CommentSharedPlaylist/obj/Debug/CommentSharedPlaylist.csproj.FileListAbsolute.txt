@@ -76,3 +76,5 @@ C:\git\SharedPlaylist\CommentSharedPlaylist\obj\Debug\CommentDialog.g.cs
 C:\git\SharedPlaylist\CommentSharedPlaylist\obj\Debug\MainWindow.g.cs
 C:\git\SharedPlaylist\CommentSharedPlaylist\obj\Debug\App.g.cs
 C:\git\SharedPlaylist\CommentSharedPlaylist\obj\Debug\App.baml
+C:\git\SharedPlaylist\CommentSharedPlaylist\bin\Debug\SharedPlaylist.Models.dll
+C:\git\SharedPlaylist\CommentSharedPlaylist\bin\Debug\SharedPlaylist.Models.pdb

@@ -47,3 +47,5 @@ C:\git\SharedPlaylist\SpotifyAPI\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\git\SharedPlaylist\SpotifyAPI\obj\Debug\SpotifyAPI.csprojResolveAssemblyReference.cache
 C:\git\SharedPlaylist\SpotifyAPI\obj\Debug\SpotifyAPI.dll
 C:\git\SharedPlaylist\SpotifyAPI\obj\Debug\SpotifyAPI.pdb
+C:\git\SharedPlaylist\SpotifyAPI\bin\Debug\SharedPlaylist.Models.dll
+C:\git\SharedPlaylist\SpotifyAPI\bin\Debug\SharedPlaylist.Models.pdb
