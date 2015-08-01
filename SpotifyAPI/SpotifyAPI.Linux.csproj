@@ -13,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,6 +52,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=c7439020c8fedf87">
+      <Private>False</Private>
+      <Package>monodevelop</Package>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Local\ExtendedWebClient.cs">
@@ -107,16 +113,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SharedPlaylist.Models\SharedPlaylist.Models.csproj">
-      <Project>{55DBF02E-C5BE-46C1-90C0-6289D0110225}</Project>
-      <Name>SharedPlaylist.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SharedPlaylistApi\SharedPlaylistApi.csproj">
-      <Project>{C9B9EE1D-1162-4A02-B577-182B462C9FBD}</Project>
-      <Name>SharedPlaylistApi</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -126,4 +122,10 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <ProjectReference Include="..\SharedPlaylist.Models\SharedPlaylist.Models.Linux.csproj">
+      <Project>{55DBF02E-C5BE-46C1-90C0-6289D0110225}</Project>
+      <Name>SharedPlaylist.Models.Linux</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
