@@ -5,23 +5,23 @@
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
 sudo apt-get update
-     #+end_src
-     - Update
-       #+begin_src sh
+#+end_src
+   - Update
+     #+begin_src sh
 sudo apt-get update
-       #+end_src
-       - Install mono-devel, mono-complete and referenceassemblies-pcl
-#+begin_src sh
+     #+end_src
+   - Install mono-devel, mono-complete and referenceassemblies-pcl
+     #+begin_src sh
 sudo apt-get install  mono-devel mono-complete referenceassemblies-pcl
-#+end_src
-       - Import the root certificates using the mozroots tool
-#+begin_src sh
+     #+end_src
+   - Import the root certificates using the mozroots tool
+     #+begin_src sh
 mozroots --import --sync
-#+end_src
-       - Build
-	 #+begin_src sh
+     #+end_src
+   - Build
+    #+begin_src sh
 xbuild SharedPlaylist.Linux.sln
-	 #+end_src
+    #+end_src
 
 
    
