@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using SharedPlaylist.Core.Models;
 using SharedPlaylist.Models;
-using SharedPlaylistApi.Models;
 
 namespace SharedPlaylist.Core.Service
 {

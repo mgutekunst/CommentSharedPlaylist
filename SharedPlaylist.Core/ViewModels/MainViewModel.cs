@@ -9,7 +9,6 @@ using Microsoft.Practices.ServiceLocation;
 using SharedPlaylist.Core.Service;
 using SharedPlaylist.Core.Utils;
 using SharedPlaylist.Models;
-using SharedPlaylistApi.Models;
 using SpotifyAPI.Local;
 using SpotifyAPI.Web;
 using SpotifyAPI.Web.Auth;
