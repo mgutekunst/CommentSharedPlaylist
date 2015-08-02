@@ -91,7 +91,9 @@
     <Compile Include="CommentDialog.xaml.cs">
       <DependentUpon>CommentDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\AlbumToImagePathConverter.cs" />
     <Compile Include="Utils\BootStrapper.cs" />
+    <Compile Include="Utils\FullTrackToArtistListConverter.cs" />
     <Page Include="CommentDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -127,6 +129,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\FontAwesome.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

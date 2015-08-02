@@ -35,6 +35,8 @@ namespace CommentSharedPlaylist
 
         private MainViewModel _vm;
 
+        private bool _isTitleMouseDown = false;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -93,6 +95,32 @@ namespace CommentSharedPlaylist
             {
                 MessageBox.Show("[Enter valid comment]", "Validation Error]", MessageBoxButton.OK);
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void titleBar_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            //_isTitleMouseDown = true;
+            this.DragMove();
+        }
+
+        private void titleBar_OnMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            _isTitleMouseDown = false;
+        }
+
+        private void titleBar_OnMouseMove(object sender, MouseEventArgs e)
+        {
+            //if(_isTitleMouseDown)
+            //{
+            //    this.
+            //}	
+
+            //this.dra
         }
     }
 
