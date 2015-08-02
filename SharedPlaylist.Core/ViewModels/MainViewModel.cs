@@ -60,6 +60,26 @@ namespace SharedPlaylist.Core.ViewModels
         }
 
 
+        private SimplePlaylist _selectedPlaylist;
+        public SimplePlaylist SelectedPlaylist
+        {
+            get { return _selectedPlaylist; }
+            set
+            {
+                _selectedPlaylist = value;
+                RaisePropertyChanged("SelectedPlaylist");
+            }
+        }
+
+
+        private PlaylistTrack _selectedTrack;
+        public PlaylistTrack SelectedTrack
+        {
+            get { return _selectedTrack; }
+            set { _selectedTrack = value; RaisePropertyChanged("SelectedTrack"); }
+        }
+
+
         Paging<SimplePlaylist> _playlists;
         public Paging<SimplePlaylist> Playlists
         {

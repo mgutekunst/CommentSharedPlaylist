@@ -85,7 +85,7 @@ namespace SharedPlaylistApi.Controllers
             var dbComments = db.Comments.Where(e => e.PlaylistId == comments.PlaylistId && e.TrackId == comments.TrackId);
             if (dbComments.Any())
             {
-                var lastOrder = dbComments.OrderBy(e => e.Order).Last();
+                var lastOrder = dbComments.OrderByDescending(e => e.Order).First();
                 var newOrder = lastOrder.Order;
                 comments.Order = newOrder++;
             }

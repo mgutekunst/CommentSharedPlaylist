@@ -80,6 +80,31 @@ namespace CommentSharedPlaylist
             }
 
         }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            var track = _vm.SelectedTrack.Track;
+
+
+            _vm.NewComment.TrackId = track.Id;
+            _vm.NewComment.PlaylistId = track.PlaylistId;
+            //_vm.NewComment.Comment = dialog.ResponseText;
+            //_vm.NewComment.Comment = 
+
+            _vm.NewComment.Comment = tbComment.Text;
+
+
+            _vm.SendCommentCommand.Execute(null);
+
+            if (track.Comments == null)
+            {
+                track.Comments = new List<Comments>() { _vm.NewComment };
+            }
+            else
+            {
+                track.Comments.Add(_vm.NewComment);
+            }
+        }
     }
 
 }

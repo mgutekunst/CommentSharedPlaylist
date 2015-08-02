@@ -5,35 +5,64 @@
         DataContext="{Binding MainViewModel, Source={StaticResource ViewModelLocator}}" WindowStyle="ToolWindow" ShowInTaskbar="True" WindowStartupLocation="CenterScreen">
 
 
-    <TreeView x:Name="treeView" ItemsSource="{Binding CollaborativePlaylists}">
-        <TreeView.ItemTemplate>
-            <DataTemplate>
-                <TreeViewItem Header="{Binding Name}" ItemsSource="{Binding Tracks.PlaylistTracks}">
-                    <TreeViewItem.ItemTemplate>
-                        <DataTemplate>
-                            <TreeViewItem Header="{Binding Track.FullTrackName}" Margin="0,6">
-                                <TreeViewItem.ContextMenu>
-                                    <ContextMenu>
-                                        <MenuItem Header="[Add Comment]" Tag="{Binding Track}" Click="addCommentForTrack" />
-                                    </ContextMenu>
-                                </TreeViewItem.ContextMenu>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-                                <ListView  ItemsSource="{Binding Track.Comments}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                    <ListView.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Vertical">
-                                                <TextBlock Text="{Binding Username}" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock Text="{Binding Comment}" FontWeight="Medium" FontSize="12"/>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
-                            </TreeViewItem>
-                        </DataTemplate>
-                    </TreeViewItem.ItemTemplate>
-                </TreeViewItem>
-            </DataTemplate>
-        </TreeView.ItemTemplate>
 
-    </TreeView>
+        <ListView Grid.Column="0" ItemsSource="{Binding CollaborativePlaylists}" SelectedItem="{Binding SelectedPlaylist, Mode=TwoWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+        <ListView Grid.Column="1" ItemsSource="{Binding SelectedPlaylist.Tracks.PlaylistTracks}" SelectedItem="{Binding SelectedTrack}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Track.FullTrackName}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+        <Grid Grid.Column="2" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ListView ItemsSource="{Binding SelectedTrack.Track.Comments}">
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="[Add Comment]" Tag="{Binding SelectedTrack.Track}" Click="addCommentForTrack" />
+                    </ContextMenu>
+                </ListView.ContextMenu>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Username}" FontWeight="Bold" FontSize="14" />
+                            <TextBlock Text="{Binding Comment}" FontWeight="Medium" FontSize="12" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid Grid.Row="1" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Margin="6,0" Grid.Column="0" Text="{Binding NewComment.Comment, Mode=TwoWay}" x:Name="tbComment" HorizontalAlignment="Stretch"/>
+                <Button Margin="6,0" Grid.Column="1" Content="[submit]" Click="ButtonBase_OnClick" HorizontalAlignment="Right"/>
+            </Grid>
+
+        </Grid>
+    </Grid>
+
+
+
 </Window>
