@@ -19,6 +19,7 @@ namespace SharedPlaylist.Core.Service
 
         private static string TOKEN_BODY = "grant_type=password&username={0}&password={1}";
         private static string COMMENT_URL = "Comments";
+        private static string COMMENTS_FOR_TRACK_BY_ID_URL = "Comments/GetCommentsForTrackById?Id={0}";
 
 
         public DataService()
@@ -32,6 +33,31 @@ namespace SharedPlaylist.Core.Service
             try
             {
                 var requestUrl = string.Format(BASE_URL, COMMENT_URL);
+                var response = await RequestAsync<string>(requestUrl, HttpMethod.Get);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var comments = JsonConvert.DeserializeObject<List<Comments>>(response.Content);
+                    return comments;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Debug.WriteLine(ex.ToString());
+            }
+
+            return new List<Comments>();
+        }
+
+
+        public async Task<List<Comments>> GetCommentsForTrackById(string trackId)
+        {
+            try
+            {
+                var commentUrl = string.Format(COMMENTS_FOR_TRACK_BY_ID_URL, trackId);
+
+                var requestUrl = string.Format(BASE_URL, commentUrl);
                 var response = await RequestAsync<string>(requestUrl, HttpMethod.Get);
 
                 if (response.IsSuccessStatusCode)

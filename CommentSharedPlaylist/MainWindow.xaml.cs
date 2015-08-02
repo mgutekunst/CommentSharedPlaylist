@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Microsoft.Ajax.Utilities;
 using SharedPlaylist.Core.ViewModels;
 using SharedPlaylist.Models;
 using SharedPlaylistApi.Models;
@@ -83,26 +84,14 @@ namespace CommentSharedPlaylist
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            var track = _vm.SelectedTrack.Track;
-
-
-            _vm.NewComment.TrackId = track.Id;
-            _vm.NewComment.PlaylistId = track.PlaylistId;
-            //_vm.NewComment.Comment = dialog.ResponseText;
-            //_vm.NewComment.Comment = 
-
-            _vm.NewComment.Comment = tbComment.Text;
-
-
-            _vm.SendCommentCommand.Execute(null);
-
-            if (track.Comments == null)
+            if (!tbComment.Text.IsNullOrWhiteSpace())
             {
-                track.Comments = new List<Comments>() { _vm.NewComment };
+                _vm.NewComment.Comment = tbComment.Text;
+                _vm.SendCommentCommand.Execute(null);
             }
             else
             {
-                track.Comments.Add(_vm.NewComment);
+                MessageBox.Show("[Enter valid comment]", "Validation Error]", MessageBoxButton.OK);
             }
         }
     }

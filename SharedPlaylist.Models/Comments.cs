@@ -1,7 +1,23 @@
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using SharedPlaylist.Models.Annotations;
+
 namespace SharedPlaylist.Models
 {
-    public partial class Comments
+    public partial class Comments : INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void RaisePropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+
         public int Id { get; set; }
 
         //[Required]
@@ -16,7 +32,12 @@ namespace SharedPlaylist.Models
 
         //[Required]
         //[StringLength(255)]
-        public string Comment { get; set; }
+        private string _comments;
+        public string Comment
+        {
+            get { return _comments; }
+            set { _comments = value; RaisePropertyChanged("Comment"); }
+        }
 
 
         //[Required]

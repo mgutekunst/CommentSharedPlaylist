@@ -1,7 +1,7 @@
 ﻿<Window x:Class="CommentSharedPlaylist.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="{Binding Title}" Height="350" Width="525"
+        Title="{Binding Title}" Height="350" Width="800"
         DataContext="{Binding MainViewModel, Source={StaticResource ViewModelLocator}}" WindowStyle="ToolWindow" ShowInTaskbar="True" WindowStartupLocation="CenterScreen">
 
 
@@ -56,7 +56,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
-                <TextBox Margin="6,0" Grid.Column="0" Text="{Binding NewComment.Comment, Mode=TwoWay}" x:Name="tbComment" HorizontalAlignment="Stretch"/>
+                <TextBox Margin="6,0" Grid.Column="0" Text="{Binding NewComment.Comment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="tbComment" HorizontalAlignment="Stretch"/>
                 <Button Margin="6,0" Grid.Column="1" Content="[submit]" Click="ButtonBase_OnClick" HorizontalAlignment="Right"/>
             </Grid>
 

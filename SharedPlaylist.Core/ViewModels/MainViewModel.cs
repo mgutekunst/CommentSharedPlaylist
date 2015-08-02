@@ -68,6 +68,7 @@ namespace SharedPlaylist.Core.ViewModels
             {
                 _selectedPlaylist = value;
                 RaisePropertyChanged("SelectedPlaylist");
+                updateNewComment();
             }
         }
 
@@ -76,7 +77,22 @@ namespace SharedPlaylist.Core.ViewModels
         public PlaylistTrack SelectedTrack
         {
             get { return _selectedTrack; }
-            set { _selectedTrack = value; RaisePropertyChanged("SelectedTrack"); }
+            set
+            {
+                _selectedTrack = value; RaisePropertyChanged("SelectedTrack");
+
+                updateNewComment();
+            }
+        }
+
+        private void updateNewComment()
+        {
+            if (SelectedTrack != null)
+            {
+                NewComment.TrackId = SelectedTrack.Track.Id;
+            }
+
+            NewComment.PlaylistId = SelectedPlaylist.Id;
         }
 
 
@@ -151,8 +167,9 @@ namespace SharedPlaylist.Core.ViewModels
             var dbComment = await ServiceLocator.Current.GetInstance<DataService>().PostCommentAsync(NewComment);
             if (dbComment.Id != 0)
             {
-                // todo update comments
-                getPlaylists();
+                SelectedTrack.Track.Comments = await ServiceLocator.Current.GetInstance<DataService>().GetCommentsForTrackById(dbComment.TrackId);
+
+                NewComment.Comment = string.Empty;
             }
 
         }

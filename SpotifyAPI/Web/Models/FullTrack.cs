@@ -1,14 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
 using SharedPlaylist.Models;
 using SharedPlaylistApi.Models;
+using SpotifyAPI.Annotations;
 
 namespace SpotifyAPI.Web.Models
 {
-    public class FullTrack : BasicModel
+    public class FullTrack : BasicModel, INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void RaisePropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+
+
+
+
         [JsonProperty("album")]
         public SimpleAlbum Album { get; set; }
 
@@ -76,10 +93,17 @@ namespace SpotifyAPI.Web.Models
         }
 
         [JsonIgnore]
-        public List<Comments> Comments { get; set; }
+        private List<Comments> _comments;
+        public List<Comments> Comments
+        {
+            get { return _comments; }
+            set { _comments = value; RaisePropertyChanged("Comments"); }
+        }
 
 
         [JsonIgnore]
         public string PlaylistId { get; set; }
+
+        
     }
 }
