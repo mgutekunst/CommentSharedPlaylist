@@ -6,8 +6,6 @@
 *.user
 *.userosscache
 *.sln.docstates
-*.userprefs
-
 
 # Build results
 [Dd]ebug/
@@ -187,4 +185,8 @@ FakesAssemblies/
 
 *.orig
 *.Bak
-/GrowerManagement/GrowerManagement.Windows/BundleArtifacts/
+*.userprefs
+bin
+obj
+PublishProfiles
+packages

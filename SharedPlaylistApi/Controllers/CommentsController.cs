@@ -24,6 +24,22 @@ namespace SharedPlaylistApi.Controllers
             return db.Comments.OrderBy(e => e.Order);
         }
 
+
+        [HttpGet]
+        [ActionName("GetCommentsForTrackById")]
+        public async Task<IHttpActionResult> GetCommentsForTrackById(string id)
+        {
+            IEnumerable<Comments> comments = db.Comments.Where(e => e.TrackId == id);
+            if (!comments.Any())
+            {
+                return NotFound();
+            }
+
+            return Ok(comments);
+        }
+
+
+
         // GET: api/Comments/5
         [ResponseType(typeof(Comments))]
         public async Task<IHttpActionResult> GetComments(int id)
@@ -36,6 +52,7 @@ namespace SharedPlaylistApi.Controllers
 
             return Ok(comments);
         }
+
 
         // PUT: api/Comments/5
         [ResponseType(typeof(void))]
@@ -85,7 +102,7 @@ namespace SharedPlaylistApi.Controllers
             var dbComments = db.Comments.Where(e => e.PlaylistId == comments.PlaylistId && e.TrackId == comments.TrackId);
             if (dbComments.Any())
             {
-                var lastOrder = dbComments.OrderBy(e => e.Order).Last();
+                var lastOrder = dbComments.OrderByDescending(e => e.Order).First();
                 var newOrder = lastOrder.Order;
                 comments.Order = newOrder++;
             }
