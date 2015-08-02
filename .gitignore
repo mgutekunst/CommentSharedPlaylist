@@ -187,3 +187,14 @@ FakesAssemblies/
 *.Bak
 *.userprefs
 EventApp.Portable/Service/DataService.zip
+bin
+obj
+bin
+obj
+obj
+bin
+/SharedPlaylist.Models/obj
+/SharedPlaylist.Models/bin
+obj
+obj
+bin
