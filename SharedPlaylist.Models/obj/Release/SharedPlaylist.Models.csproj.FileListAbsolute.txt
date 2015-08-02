@@ -1,0 +1,5 @@
+C:\git\SharedPlaylist\SharedPlaylist.Models\bin\Release\SharedPlaylist.Models.dll
+C:\git\SharedPlaylist\SharedPlaylist.Models\bin\Release\SharedPlaylist.Models.pdb
+C:\git\SharedPlaylist\SharedPlaylist.Models\obj\Release\SharedPlaylist.Models.csprojResolveAssemblyReference.cache
+C:\git\SharedPlaylist\SharedPlaylist.Models\obj\Release\SharedPlaylist.Models.dll
+C:\git\SharedPlaylist\SharedPlaylist.Models\obj\Release\SharedPlaylist.Models.pdb

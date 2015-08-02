@@ -12,7 +12,8 @@ namespace SharedPlaylist.Core.Service
 {
     public class DataService : DataServiceBase
     {
-        public const string BASE_URL = "http://localhost:1234/api/{0}";
+        //public const string BASE_URL = "http://localhost:1234/api/{0}";
+        public const string BASE_URL = "https://commentsharedplaylist.azurewebsites.net/api/{0}";
         //public const string TOKEN_URL = "http://localhost:1234/token";
 
 
@@ -71,7 +72,7 @@ namespace SharedPlaylist.Core.Service
                 Debug.WriteLine(ex.ToString());
             }
 
-           return new Comments();
+            return new Comments();
         }
     }
 }
