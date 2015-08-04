@@ -28,14 +28,26 @@ namespace SharedPlaylistApi.Controllers
 
         [HttpGet]
         [ActionName("GetCommentsForPlaylistIds")]
-        public async Task<IHttpActionResult> GetCommentsForPlaylistIds(string[] playlistIds)
+        public async Task<IHttpActionResult> GetCommentsForPlaylistIds([FromUri] string[] playlistIds)
         {
             var comments = new List<Comments>();
-            foreach (var comment in playlistIds.Select(playlistId => db.Comments.Where(e => e.PlaylistId == playlistId)).Where(comment => comment.Any()))
+
+            foreach (var playlistId in playlistIds)
             {
-                comments.AddRange(comment);
+                var comment = db.Comments.Where(e => e.PlaylistId == playlistId);
+
+                if (comment.Any())
+                {
+                    comments.AddRange(comment);
+                }
             }
-            
+
+
+            //foreach (var comment in playlistIds.Select(playlistId => db.Comments.Where(e => e.PlaylistId == playlistId)).Where(comment => comment.Any()))
+            //{
+            //comments.AddRange(comment);
+            //}
+
             return Ok(comments);
         }
 
