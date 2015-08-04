@@ -25,6 +25,21 @@ namespace SharedPlaylistApi.Controllers
         }
 
 
+
+        [HttpGet]
+        [ActionName("GetCommentsForPlaylistIds")]
+        public async Task<IHttpActionResult> GetCommentsForPlaylistIds(string[] playlistIds)
+        {
+            var comments = new List<Comments>();
+            foreach (var comment in playlistIds.Select(playlistId => db.Comments.Where(e => e.PlaylistId == playlistId)).Where(comment => comment.Any()))
+            {
+                comments.AddRange(comment);
+            }
+            
+            return Ok(comments);
+        }
+
+
         [HttpGet]
         [ActionName("GetCommentsForTrackById")]
         public async Task<IHttpActionResult> GetCommentsForTrackById(string id)
@@ -52,7 +67,6 @@ namespace SharedPlaylistApi.Controllers
 
             return Ok(comments);
         }
-
 
         // PUT: api/Comments/5
         [ResponseType(typeof(void))]
