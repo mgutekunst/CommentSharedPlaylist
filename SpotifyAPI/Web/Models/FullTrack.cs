@@ -5,7 +5,6 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
 using SharedPlaylist.Models;
-//using SharedPlaylistApi.Models;
 using SpotifyAPI.Annotations;
 
 namespace SpotifyAPI.Web.Models
