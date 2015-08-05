@@ -28,9 +28,6 @@ namespace SharedPlaylist.Core.ViewModels
         private ImplicitGrantAuth _auth;
 
 
-
-
-
         #endregion
 
 
@@ -318,13 +315,23 @@ namespace SharedPlaylist.Core.ViewModels
                 Username = PrivateProfile.Id
             };
 
-            Comments = await GetAllComments();
+          
+                
+                //GetAllComments();
 
 
             var collaborativePlaylists = _playlists.Items.Where(e => e.Collaborative).ToList();
 
+
             if (collaborativePlaylists.Any())
             {
+
+                string[] ids = collaborativePlaylists.Select(e => e.Id).ToArray();
+
+                Comments = await ServiceLocator.Current.GetInstance<DataService>().GetCommentsForPlaylistIdsAsync(ids);
+
+
+
                 foreach (var playlist in collaborativePlaylists)
                 {
                     getTracksForPlaylist(playlist);
