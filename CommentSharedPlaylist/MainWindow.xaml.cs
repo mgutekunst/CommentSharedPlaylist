@@ -61,7 +61,7 @@ namespace CommentSharedPlaylist
                 commentsScrollViewer.ScrollToEnd();
             }
         }
-        
+
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             if (!tbComment.Text.IsNullOrWhiteSpace())
@@ -85,7 +85,10 @@ namespace CommentSharedPlaylist
         private void titleBar_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             //_isTitleMouseDown = true;
-            this.DragMove();
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
         }
 
         private void titleBar_OnMouseUp(object sender, MouseButtonEventArgs e)

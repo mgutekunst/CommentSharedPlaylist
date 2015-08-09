@@ -608,7 +608,7 @@
             <TextBlock Grid.Column="1"  Text="{Binding Title}" VerticalAlignment="Center" Foreground="{StaticResource SpotifyGreenBrush}" FontWeight="Bold" />
             <Rectangle Grid.ColumnSpan="2" VerticalAlignment="Bottom" Height="1" Fill="#FF111111" />
             <utils:BusyIndicator  Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,55,0" Height="20" Width="20" Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}}" />
-
+            <Rectangle Grid.ColumnSpan="2" VerticalAlignment="Stretch" Height="Auto" Fill="Transparent"  Margin="0,0,50,0" Cursor="SizeAll" />
             <Button Grid.Column="1" HorizontalAlignment="Right" Content="&#xf00d;" Margin="0,0,0,1" Background="Transparent" FontFamily="pack://application:,,,/Fonts/#FontAwesome" BorderThickness="0" Width="50" Foreground="#7FFFFFFF" Click="Button_Click" Style="{DynamicResource ButtonStyleClose}" VerticalAlignment="Stretch" FontSize="16" BorderBrush="{x:Null}"></Button>
         </Grid>
 
