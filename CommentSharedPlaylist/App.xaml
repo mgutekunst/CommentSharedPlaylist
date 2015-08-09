@@ -3,11 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:utils="clr-namespace:SharedPlaylist.Core.Utils;assembly=SharedPlaylist.Core"
              xmlns:localUtils="clr-namespace:CommentSharedPlaylist.Utils"
-             StartupUri="MainWindow.xaml">
+             StartupUri="MainWindow.xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             mc:Ignorable="d" 
+             >
     <Application.Resources>
         <ResourceDictionary>
-            <utils:ViewModelLocator x:Key="ViewModelLocator" />
-            <localUtils:BootStrapper x:Key="BootStrapper" />
+            <utils:ViewModelLocator x:Key="ViewModelLocator" d:DataSource="True" />
+            <localUtils:BootStrapper x:Key="BootStrapper"  />
+            <localUtils:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>
