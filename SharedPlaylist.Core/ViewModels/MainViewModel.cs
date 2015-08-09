@@ -29,6 +29,7 @@ namespace SharedPlaylist.Core.ViewModels
 
         #endregion
 
+        
 
         #region Properties
 
@@ -78,6 +79,7 @@ namespace SharedPlaylist.Core.ViewModels
                 _selectedTrack = value; RaisePropertyChanged("SelectedTrack");
 
                 updateNewComment();
+
             }
         }
 
@@ -130,7 +132,12 @@ namespace SharedPlaylist.Core.ViewModels
         #endregion
 
 
-
+        private bool _isLoading;
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set { _isLoading = value; RaisePropertyChanged(); }
+        }
 
         public string Title
         {
@@ -153,7 +160,7 @@ namespace SharedPlaylist.Core.ViewModels
             GetTracksForPlaylistCommand = new RelayCommand<SimplePlaylist>(getTracksForPlaylist);
             SendCommentCommand = new RelayCommand(sendComment);
 
-
+            
             init();
         }
 
@@ -177,12 +184,14 @@ namespace SharedPlaylist.Core.ViewModels
 
         private void getTracksForPlaylist(SimplePlaylist playlist)
         {
+            IsLoading = true;
             var tracks = _spotifyWeb.GetPlaylistTracks(playlist.Owner.Id, playlist.Id, string.Empty, Statics.PLAYLIST_TRACK_LIMIT);
 
             playlist.Tracks.PlaylistTracks = tracks.Items;
 
             getCommentsForPlaylistTracks(playlist);
 
+            IsLoading = false;
         }
 
         private void getCommentsForPlaylistTracks(SimplePlaylist playlist)
@@ -305,6 +314,7 @@ namespace SharedPlaylist.Core.ViewModels
 
         private async void getPlaylists()
         {
+            IsLoading = true;
             PrivateProfile = _spotifyWeb.GetPrivateProfile();
 
             Playlists = _spotifyWeb.GetUserPlaylists(_privateProfile.Id);
@@ -353,6 +363,7 @@ namespace SharedPlaylist.Core.ViewModels
             //    Order = 1
             //});
 
+            IsLoading = false;
         }
     }
 }
